@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiPhone } from "react-icons/bi";
 
 const Navbar = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if(offset > 0) {
+        setIsSticky(true)
+      }else{
+        setIsSticky(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll )
+
+    return (
+      window.addEventListener('scroll', handleScroll)
+    )
+  }, [])
+
   const navItems = (
     <>
       <li>
@@ -44,6 +63,7 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <header className="max-w-screen-2xl container max-auto">
       <div className="navbar xl:px-24">
@@ -88,7 +108,7 @@ const Navbar = () => {
               className="input input-bordered w-24 md:w-auto"
             />
           </div>
-          <div className="indicator mr-3 btn btn-ghost rounded-full items-center justify-center hidden lg:flex">
+          <div className="indicator mr-3 btn btn-ghost rounded-full items-center  bg-gray-500 justify-center hidden lg:flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -103,9 +123,9 @@ const Navbar = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <span className="badge badge-sm indicator-item">8</span>
+            <span className="badge badge-sm indicator-item bg-orange-500 w-5 h-15">8</span>
           </div>
-          <a className="btn rounded-full px-6 text-white flex items-center gap-2">
+          <a className="btn rounded-full px-3 text-white bg-orange-500 flex items-center gap-2">
             <BiPhone /> Contact
           </a>
         </div>
