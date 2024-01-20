@@ -12,7 +12,7 @@ const Banner = () => {
                 <button className='btn bg-orange-400 px-8 py-3 text-white font-semibold rounded-full'>Order Now</button>
             </div>
             <div className='md:w-1/2 chef_img'>
-                <img src='/blackChef.jpg' alt='chef' />
+                <img src='images/blackChef.jpg' alt='chef' />
             </div>
         </div>
     </div>

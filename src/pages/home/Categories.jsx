@@ -1,10 +1,10 @@
 import React from 'react'
 
 const CategoryItems = [
-  {id: 1, title :'Main Dish', des: '(86 dishes)', image: '/food1.jpg'},
-  {id: 2, title :'Break Fast', des: '(12 dishes)', image: '/food2.jpg'},
-  {id: 3, title :' Special Dish', des: '(48 dishes)', image: '/food3.jpg'},
-  {id: 4, title :'Browse All', des: '(255 dishes)', image: '/food4.jpg'},
+  {id: 1, title :'Main Dish', des: '(86 dishes)', image: 'images/recipes/food1.jpg'},
+  {id: 2, title :'Break Fast', des: '(12 dishes)', image: 'images/recipes/food2.jpg'},
+  {id: 3, title :' Special Dish', des: '(48 dishes)', image: 'images/recipes/food3.jpg'},
+  {id: 4, title :'Browse All', des: '(255 dishes)', image: 'images/recipes/food4.jpg'},
 ]
 
 const Categories = () => {
