@@ -93,7 +93,7 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <a href="/" className="logo text-white">
+          <a href="/" className="logo text-white whitespace-nowrap pl-5">
             MaMa PuT
           </a>
         </div>
@@ -125,7 +125,7 @@ const Navbar = () => {
             </svg>
             <span className="badge badge-sm indicator-item bg-orange-500 w-5 h-15">8</span>
           </div>
-          <a className="btn rounded-full px-3 text-white bg-orange-500 flex items-center gap-2">
+          <a className="hidden  btn rounded-full px-3 text-white bg-orange-500 lg:flex lg:items-center lg:gap-2">
             <BiPhone /> Contact
           </a>
         </div>
