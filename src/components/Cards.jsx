@@ -9,8 +9,10 @@ const Cards = ({ item }) => {
     setIsHeartFilleed(!isHeartFilled);
   };
 
+  console.log({item})
+
   return (
-    <div className="card w-96 bg-base-100 shadow-xl relative">
+    <div className="card w-96 bg-base-100 shadow-xl relative border border-red-500">
         <div className={`rating gap-1 absolute right-2 top-2 p-4 heartStar bg-green-700 ${isHeartFilled ?  'text-red-700': 'text-white'}` } onClick={handleHeartclick}>
             <FaHeart className='h-5 w-5 cursor-pointer' />
         </div>
