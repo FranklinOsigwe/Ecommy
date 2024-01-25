@@ -16,14 +16,14 @@ const Menu = () => {
       const res = await fetch("/menu.json");
       const data = await res.json();
 
-      console.log({data})
+ console.log('data', data)
       setMenu(data);
       setSelectedCategory(data);
+      setCurrentPage(1)
     } catch (error) {
       console.log("Error fetching data", error);
     }
   };
-
   useEffect(() => {
     fetchData();
     showAll()
@@ -31,16 +31,15 @@ const Menu = () => {
 
   const filterItems = (category) => {
     const filtered =
-      category === "all"
-        ? menu
-        : menu.filter((item) => item.category === category);
-    setFilteredItems(filtered);
-    setSelectedCategory(category);
+      category === "all" ? menu : menu.filter((item) => item.category === category);
+      setFilteredItems(filtered);
+     setSelectedCategory(category);
   };
 
   const showAll = () => {
     setFilteredItems(menu);
     setSelectedCategory("all");
+    setCurrentPage(1)
   };
 
   const handleSortChange = (option) => {
@@ -62,10 +61,15 @@ const Menu = () => {
       default:
     }
     setFilteredItems(sortedItems);
-
+    setCurrentPage(1)
   };
 
-  console.log({filterItems})
+//pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem * itemsPerPage;
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <div className="section-container bg-gradient-to-r from-[#FAFAFA] from-0% to-[#FCFCFC] to-100% py-40 ">
@@ -113,10 +117,20 @@ const Menu = () => {
         </div>
 
         <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5'>
-          {filteredItems.map((item) => (
+          {currentItems.map((item) => (
             <Cards key={item._id} item={item}/>
           ))}
         </div>
+      </div>
+
+      <div className='flex justify-center my-8'>
+        {
+          Array.from({length : Math.ceil(filteredItems.length / itemsPerPage)}).map((_, index) => (
+ <button key={index + 1} onClick={() => paginate(index + 1)} className={`mx-1 px-3 py-1 rounded-full ${currentPage === index + 1 ? 'bg-green-700 text-white' : 'bg-gray-200'}`}>
+              {index + 1}
+            </button>
+          ))
+        }
       </div>
     </div>
   );
