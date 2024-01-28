@@ -13,11 +13,11 @@ const Testimonials = () => {
           <div className="text-left">
             <p className="subtitle">Testimonials</p>
             <h2 className="title text-purple-900">What our customers say about us</h2>
-            <blockqoute className="my-5 text-black-300 leading-[30px]">
+            <blockquote className="my-5 text-black-300 leading-[30px]">
               "I had the pleasure of dining at mama P last night and I am still
               raving about the experience! The attention to details in
               presentation and service was Impeccable"
-            </blockqoute>
+            </blockquote>
 
             <div className='flex items-center gap-4 flex-wrap'>
               <div className="avatar-group -space-x-6 rtl:space-x-reverse">

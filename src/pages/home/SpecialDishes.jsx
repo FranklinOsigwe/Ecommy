@@ -7,14 +7,14 @@ import { FaAngleRight } from 'react-icons/fa6'
 import { FaAngleLeft } from 'react-icons/fa';
 
 
-const simpleNextArrow = (props) => {
+const SimpleNextArrow = (props) => {
   const {className, style, onClick} = props;
   return (
     <div className={className} style={{...style, display: 'block', background: 'red'}} onClick={onClick}>NEXT</div>
   )
 }
 
-const simplePrevArrow = () => {
+const SimplePrevArrow = (props) => {
   const {className, style, onClick} = props;
   return (
     <div className={className} style={{...style, display: 'block', background: 'red'}} onClick={onClick}>PREVIEW</div>
@@ -30,7 +30,7 @@ useEffect(() => {
       const specials = data.filter((item) => item.category === 'popular')
       setRecipes(specials)
     })
-})
+}, [])
 
     const settings = {
         dots: true,
@@ -50,8 +50,8 @@ useEffect(() => {
           },
         ],
 
-        nextArrow: <simpleNextArrow/>,
-        prevArrow: <simplePrevArrow/>
+        nextArrow: <SimpleNextArrow className='' style='' onClick='' />,
+        prevArrow: <SimplePrevArrow className='' style='' onClick=''/>
       };
   return (
     <div className='section-container my-20'>
@@ -69,8 +69,8 @@ useEffect(() => {
     </button>
   </div>
         <Slider ref={slider} {...settings} className='overflow-hidden mt-10 space-x-5'>
-          {recipes.map((item) => (
-            <Cards key={item.id} item={item}/>
+          {recipes.map((item, index) => (
+            <Cards key={index} item={item}/>
           ))}
         </Slider>
     </div>
