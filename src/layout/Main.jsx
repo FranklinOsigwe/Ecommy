@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import {Outlet} from 'react-router-dom';
 import '../App.css'
-import Footer from "../components/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 
@@ -11,16 +10,11 @@ const Main = () => {
 
 
   return (
-    <div>
-      {
-        loading ? <p>LOading ....</p> : <div><Navbar/>
-        <div className='min-h-screen'>
+    <div className='min-h-screen'>
+        <div>
+          <Navbar/>
         <Outlet/>
         </div>
-        </div>
-      }
-        
-        {/* <Footer/> */}
     </div>
   )
 }

@@ -13,11 +13,12 @@ const Signup = () => {
     formState: { errors },
   } = useForm()
 
+  const {createUser,login} = useContext(AuthContext);
+  
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || '/';
 
-  const {createUser,login} = useContext(AuthContext);
 
   const onSubmit = (data) => {
     const email = data.email;
